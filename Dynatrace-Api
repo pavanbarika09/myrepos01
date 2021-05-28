@@ -4,8 +4,8 @@ $Dynatrace_API_TOKEN=$Args=$Args[1]
 
 #set the data for Api Call
 #adjust the number of tags in the JSON below and tag variables values
-$TAG_VALUE_ENVIRONMENT=$Args[2]
-$TAG_VALUE_SERVICE=$Args[3]
+$ENVIRONMENT=$Args[2]
+$SERVICE=$Args[3]
 
 #set values that are passes as Dynatrace event context
 $DEPLOYMENT_PROJECT="Azure Devops project: $($env:SYSTEM_TEAMPROJECT)"
@@ -28,13 +28,13 @@ $REQUEST_BODY=@"
 				"tags" : [
 					{ 
 						"context" : "CONTEXTLESS",
-						"key" : ënvironment",
-						"value": "$TAG_VALUE_ENVIRONMENT"
+						"key" : "environment",
+						"value": "$ENVIRONMENT"
 					},
 					{
 						"context" : "CONTEXTLESS",
 						"key" : "service",
-						"value": "$TAG_VALUE_SERVICE"
+						"value": "$SERVICE"
 					}
 					]
 				}
